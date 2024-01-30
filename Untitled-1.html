@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background-color: aqua;
+        }
+
+        .box {
+            height: 60px;
+            width: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bolder;
+            background-color: white;
+            border: 5px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box" id="angry-tiger-6089">tiger</div>
+        <div class="box" id="dog-barking-70772">dog</div>
+        <div class="box" id="monkey-128368">monkey</div>
+    </div>
+
+    <script>
+        // let show = ["angry-tiger-6089", "dog-barking-70772", "monkey-128368"];
+        let box = document.querySelectorAll(".box")
+        let arr = ""
+        let currentAudio = null;
+
+        box.forEach(function (se) {
+            se.addEventListener("click", (e) => {
+                // console.log(e,"e");
+                let getnames = e.target.id
+                arr = getnames
+                // console.log(getnext, "getnext");
+
+                playit(arr)
+
+            })
+
+        })
+        function playit(box) {
+            // console.log(box);
+            if (currentAudio) {
+                currentAudio.pause(); 
+            }
+
+            let sound = new Audio(box + ".mp3")
+            // console.log(sound);
+            sound.play();
+            currentAudio = sound;
+        }
+
+           
+
+
+    </script>
+</body>
+
+</html>
